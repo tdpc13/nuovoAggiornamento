@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Gestisci Prenotazioni";
+}
+@using ASPNETIdentityManager.Entities
+@inject ASPNETIdentityManager.Contexts.PrenotazioneDBContext prenotazioneDBContext
+@model List<PrenotazioneModel>;
+
+<div class="text-center">
+        <div class="container">
+            <div class="row">
+                <div class="h1 col-12" style="padding-bottom: 50px">Gestisci Prenotazioni</div>
+                    <table>
+                        <tr>
+                            <th>UserName</th>
+                            <th>Dal</th>
+                            <th>Al</th>
+                            <th>N. persone</th>
+                            <th>Pacchetto</th>
+                        </tr>
+ 
+                    @foreach (PrenotazioneModel prenotazione in Model)
+                    {
+                        <tr>
+                        <td>@prenotazione.UserName</td>
+                        <td>@prenotazione.Dal</td>
+                        <td>@prenotazione.Al</td>
+                        <td>@prenotazione.Persone</td>
+                        <td>@prenotazione.Pacchetto</td>
+                        </tr>
+                    }
+        
+                    </table>
+                </div>
+             </div>
+         </div>
+                  
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
